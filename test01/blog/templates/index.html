@@ -1,0 +1,26 @@
+<html>
+<head>
+
+	<title>{{title}}</title>
+<body>
+<h1>hello {{user.name}}</h1>
+<li>age: {{user.age}}</li>
+<li>sex: {{user.sex}}</li>
+
+<li>{{user.name}} say: {{user.say}}</li>
+<li>{{book_list.0}}</li>
+<li>{{book_list.1}}</li>
+{{book_list.2}}
+
+{% if user %}
+	<li>name: {{user.name}}</li>
+{% else%}
+	<li>用户不存在</li>
+{% endif %}
+<p>kkk</p>
+{% for book in book_list %}
+	<li>{{book}}</li>
+{% endfor %}
+</body>
+
+</html>
