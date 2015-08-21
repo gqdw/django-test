@@ -20,5 +20,6 @@ from django.contrib import admin
 urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^blog/$','blog.views.index'),
+	url(r'^time/$','blog.views.time'),
 #	url(r'^blog/$',index),
 ]

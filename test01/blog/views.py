@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader,Context
 from django.shortcuts import render_to_response
+import datetime
 # Create your views here.
 '''
 def index(req):
@@ -25,3 +26,8 @@ def index(req):
 	book_list = ['python','php','java','c']
 	return render_to_response('index.html',{'title':'fuck', 'user':user,'book_list':book_list})
 #	return HttpResponse('<h1>hello baby!</h1>')
+
+def time(req):
+	now = datetime.datetime.now()
+	html = "<html><body>it is %s.</body></html>" % now
+	return HttpResponse(html)	
