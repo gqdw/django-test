@@ -21,5 +21,6 @@ urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^blog/$','blog.views.index'),
 	url(r'^time/$','blog.views.time'),
+	url(r'^time/plus/(\d)/$','blog.views.time2'),
 #	url(r'^blog/$',index),
 ]

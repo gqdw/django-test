@@ -31,3 +31,15 @@ def time(req):
 	now = datetime.datetime.now()
 	html = "<html><body>it is %s.</body></html>" % now
 	return HttpResponse(html)	
+
+def time2(req,offset):
+	print offset
+	try:
+		offset = int(offset)
+	except ValueError:
+		raise Http404()
+	dt = datetime.datetime.now() + datetime.timedelta( hours=offset )
+	html = "<html><body>In %s hour(s), it will be %s.</body></html>" % (offset, dt)
+	return HttpResponse(html)
+
+
