@@ -1,6 +1,8 @@
+#coding:utf-8
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
+from send_mail import sendmail
 
 from django import forms
 # Create your views here.
@@ -10,12 +12,15 @@ class ContactForm(forms.Form):
 	email = forms.EmailField(required=False)
 	message = forms.CharField()
 
+#def sendmail(to,subject,message):
+
 def contact(request):
 	if request.method == 'POST':
 		form = ContactForm(request.POST)
 		if form.is_valid():
 			cd = form.cleaned_data
-			print cd['subject'],cd['message']
+			print cd['subject'],cd['message'],cd['email']
+			sendmail( cd['email'], cd['subject'] , cd['message'])
 #			send_mail(
 #            	cd['subject'],
 #                cd['message'],
