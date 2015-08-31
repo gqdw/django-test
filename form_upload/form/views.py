@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponse
+from .models import User
 # Create your views here.
 
 
@@ -17,10 +18,14 @@ def register(req):
 			print req.FILES
 			print cd['headImg'].name
 			print cd['headImg'].size
-			fp = file( cd['headImg'].name ,'wb' )
-			s = cd['headImg'].read()
-			fp.write(s)
-			fp.close()
+			u = User()
+			u.username = cd['username']
+			u.headImg = cd['headImg']
+			u.save()
+			#fp = file( cd['headImg'].name ,'wb' )
+			#s = cd['headImg'].read()
+			#fp.write(s)
+			#fp.close()
 			return HttpResponse('ok')
 	else:
 		form = Userform()
